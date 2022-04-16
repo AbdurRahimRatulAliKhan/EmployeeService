@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeService.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
     public class StudentsController : ControllerBase
     {
         static List<Student> students = new List<Student>()
@@ -17,12 +17,14 @@ namespace EmployeeService.Controllers
 
         
         [HttpGet]
+        [Route("api/students")]
         public IEnumerable<Student> Get()
         {
             return students;
         }
 
         [HttpGet]
+        [Route("api/students/{id}")]
         public Student Get(int id)
         {
             return students.FirstOrDefault(s => s.Id == id);
